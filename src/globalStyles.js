@@ -22,8 +22,10 @@ body {
   position: relative;
   max-width: 100vw;
   min-height: 100vh;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   overflow-x: hidden;
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
 }
 `
 
