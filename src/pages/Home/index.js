@@ -6,19 +6,32 @@ import Select from '../../components/Select'
 import Card from '../../components/Card'
 import { CardImage, CardContent } from '../../components/Card/styles'
 
+const countryParams = {
+  params: {
+    fields: "name;flag;population;region;capital"
+  }
+}
+
 export default function Home() {
   const [countrySearch, setCountrySearch] = useState('')
   const [regionSelected, setRegionSelected] = useState('')
   const [countries, setCountries] = useState()
 
+  //get all countries
   useEffect(() => {
     api.get('all', {
-      params: {
-        fields: "name;flag;population;region;capital"
-      }
+      countryParams
     })
       .then(res => setCountries(res.data))
   }, [])
+
+  //get countries by parcial name
+  useEffect(() => {
+    api.get(`name/${countrySearch}`, {
+      countryParams
+    })
+    .then(res => setCountries(res.data))
+  }, [countrySearch])
 
   return (
     <StyledHome>
@@ -32,7 +45,7 @@ export default function Home() {
       <Countries>
         {countries && countries.map(country => {
           return (
-            <Card>
+            <Card key={country.name}>
               <CardImage src={country.flag} alt={country.name} />
               <CardContent>
                 <h3>{country.name}</h3>
