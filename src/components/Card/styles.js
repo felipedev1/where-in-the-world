@@ -12,6 +12,7 @@ export const StyledCard = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
+  height: 160px;
   box-shadow: 0 0 5px rgba(150, 150, 150, .3);
   object-fit: cover;
 `
