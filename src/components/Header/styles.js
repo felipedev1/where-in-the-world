@@ -10,7 +10,7 @@ export const HeaderStyle = styled.header`
 `
 
 export const Wrapper = styled.div`
-  width: 85%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
   display: flex;
