@@ -8,8 +8,8 @@ export default function Select(props) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    props.onChange(selectedOption)
-  }, [props, selectedOption])
+    props.onChange(selectedOption.value)
+  }, [props, selectedOption.value])
 
   function handleClickSelect(option) {
     setSelectedOption(option)
@@ -31,27 +31,33 @@ export default function Select(props) {
         {props.placeholder && (
           <option value="">{props.placeholder}</option>
           )}
-        {props.options.map(option => (
-          <option key={option.value || option.text}
-          value={option.value || option.text}>
-            {option.text}
+        {props.options.map(option => {
+          let value = option.value || option.text
+          let text = option.text
+          return (
+          <option key={value}
+          value={value}>
+            {text}
           </option>
-        ))}
+        )})}
       </select>
 
 
-      {selectedOption ? ( <div>{selectedOption}</div> ) :
+      {selectedOption ? ( <div>{selectedOption.text}</div> ) :
          props.placeholder ? ( <div>{props.placeholder}</div> ) :
           ( <div>{props.options[0].text}</div>)}
 
       <OptionsBox open={open}>
-        {props.options.map(option => (
-          <Option key={option.value || option.text}
-            value={option.value || option.text}
-            onClick={() => handleClickSelect(option.value || option.text)} >
-            {option.text}
+        {props.options.map(option => {
+          let value = option.value || option.text
+          let text = option.text
+          return (          
+          <Option key={value}
+            value={value}
+            onClick={(e) => handleClickSelect({text, value})} >
+            {text}
           </Option>
-        ))}
+        )})}
       </OptionsBox>
       <FaAngleDown />
 
