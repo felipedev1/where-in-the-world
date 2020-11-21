@@ -5,9 +5,10 @@ export const StyledHome = styled.div`
   width: 90%;
   margin: 0 auto;
   padding-top: 17vh;
+  padding-bottom: 10vh;
 `
 
-export const Filter = styled.form`
+export const Filter = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
