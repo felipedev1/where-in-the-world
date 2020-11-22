@@ -5,7 +5,7 @@ export const SelectBox = styled.div`
   width: 200px;
   padding: 8px 16px;
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: ${props => props.theme.colors.element};
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
   cursor: pointer;
   display: flex;
@@ -29,7 +29,7 @@ export const OptionsBox = styled.ul`
   padding: 8px 0;
   cursor: initial;
   list-style: none;
-  background-color: #FFF;
+  background-color: ${props => props.theme.colors.element};
   
   :first-child {
     border-top-left-radius: 8px;

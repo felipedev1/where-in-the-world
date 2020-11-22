@@ -5,7 +5,7 @@ export const HeaderStyle = styled.header`
   z-index: 999;
   width: 100vw;
   height: 10vh;
-  background: #fff;
+  background-color: ${props => props.theme.colors.element};
   box-shadow: 2px 0 0 2px rgba(0, 0, 0, 0.1);
 `
 
@@ -23,10 +23,19 @@ export const Title = styled.h1`
   font-weight: 800;
 `
 
-export const ToggleTheme = styled.div`
+export const ToggleTheme = styled.button`
   display: flex;
   align-items: center;
-  font-weight: 800; 
+  font-weight: 600; 
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+
+  svg {
+    transform: rotateZ(-22deg);
+  }
+
   span {
     margin-left: 10px;
   }

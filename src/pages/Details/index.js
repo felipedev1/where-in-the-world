@@ -24,7 +24,7 @@ export default function Details() {
   return (
     <StyledDetails>
       <BackButton to="/">
-        <FaArrowLeft size={20} />
+        <FaArrowLeft />
         <span>Back</span>
       </BackButton>
       {country && (

@@ -9,13 +9,13 @@ export const StyledDetails = styled.div`
 `
 
 export const BackButton = styled(Link)`
-  color: #000;
   padding: 10px 30px;
   border-radius: 5px;
+  background-color: ${props => props.theme.colors.element};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   svg {
-    transform: translateY(5px);
+    transform: translateY(2.5px);
   }
 
   span {
@@ -73,9 +73,9 @@ export const BorderCountries = styled.div`
 
 export const BorderCountryLink = styled(Link)`
   display: inline-block;
-  color: #000;
   padding: 5px 15px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-color: ${props => props.theme.colors.element};
   margin-bottom: 10px;
 
   & + & {

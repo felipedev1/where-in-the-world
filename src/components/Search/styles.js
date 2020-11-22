@@ -17,7 +17,7 @@ export const SearchInput = styled.input`
   padding: 15px 30px 15px 50px;
   border-radius: 5px;
   border: none;
-  background-color: #FFF;
+  background-color: ${props => props.theme.colors.element};
   box-shadow: 0 0 5px rgba(0, 0, 0, .2);
   font-size: 1.6rem;
   

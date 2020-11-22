@@ -24,13 +24,22 @@ body {
   min-height: 100vh;
   font-size: 1.4rem;
   overflow-x: hidden;
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(200, 15%, 8%);
+  background-color: ${props => props.theme.colors.background};
+}
+
+body, button, input, textarea {
+  color: ${props => props.theme.colors.text};
+}
+
+input::placeholder, textarea::placeholder {
+  color: ${props => props.theme.colors.text};
 }
 
 a {
   text-decoration: none;
+  color: ${props => props.theme.colors.text};
 }
+
 `
 
 export default GlobalStyle
