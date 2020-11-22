@@ -5,6 +5,7 @@ import Search from '../../components/Search'
 import Select from '../../components/Select'
 import Card from '../../components/Card'
 import { CardImage, CardContent } from '../../components/Card/styles'
+import { Link } from 'react-router-dom'
 
 const countryParams = {
   params: {
@@ -60,17 +61,19 @@ export default function Home() {
       return <p>No Country Found!</p>
     } else {
       return filteredCountries.map((country) => (
-        <Card key={country.name}>
-          <CardImage src={country.flag} alt={country.name} />
-          <CardContent>
-            <h3>{country.name}</h3>
-            <ul>
-              <li><strong>Population: </strong>{country.population}</li>
-              <li><strong>Region: </strong>{country.region}</li>
-              <li><strong>Capital: </strong>{country.capital}</li>
-            </ul>
-          </CardContent>
-        </Card>
+        <Link to={`details/name/${country.name}`} key={country.name}>
+          <Card>
+            <CardImage src={country.flag} alt={country.name} />
+            <CardContent>
+              <h3>{country.name}</h3>
+              <ul>
+                <li><strong>Population: </strong>{country.population}</li>
+                <li><strong>Region: </strong>{country.region}</li>
+                <li><strong>Capital: </strong>{country.capital}</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Link>
       ))
     }
   }

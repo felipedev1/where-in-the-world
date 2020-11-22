@@ -27,6 +27,10 @@ body {
   background-color: hsl(0, 0%, 98%);
   color: hsl(200, 15%, 8%);
 }
+
+a {
+  text-decoration: none;
+}
 `
 
 export default GlobalStyle

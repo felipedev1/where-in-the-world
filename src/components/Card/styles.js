@@ -8,6 +8,7 @@ export const StyledCard = styled.div`
   box-shadow: 0 0 10px 3px rgba(150, 150, 150, .3);
   border-radius: 5px;
   overflow: hidden;
+  color: #000;
 `
 
 export const CardImage = styled.img`
