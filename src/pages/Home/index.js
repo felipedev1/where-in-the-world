@@ -17,6 +17,7 @@ export default function Home() {
   const [countrySearch, setCountrySearch] = useState('')
   const [regionSelected, setRegionSelected] = useState('all')
   const [countries, setCountries] = useState()
+  const [paginate, setPaginate] = useState(15)
 
   //get all countries
   useEffect(() => {
@@ -25,6 +26,10 @@ export default function Home() {
     })
       .then(res => setCountries(res.data))
   }, [])
+
+  useEffect(() => {
+    setPaginate(15)
+  }, [regionSelected, countrySearch])
 
   const filterCountries = () => {
     if(!countries) {
@@ -60,7 +65,9 @@ export default function Home() {
     if (!filteredCountries || !filteredCountries[0]) {
       return <p>No Country Found!</p>
     } else {
-      return filteredCountries.map((country) => (
+      const paginatedCountries = filteredCountries.slice(0, paginate)
+
+      return paginatedCountries.map((country) => (
         <Link to={`details/name/${country.name}`} key={country.name}>
           <Card>
             <CardImage src={country.flag} alt={country.name} />
@@ -81,7 +88,7 @@ export default function Home() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const filteredCountries = useMemo(() => filterCountries(), [countrySearch, regionSelected, countries])
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const renderedCountries = useMemo(() => renderCountries(), [countrySearch, regionSelected, countries])
+  const renderedCountries = useMemo(() => renderCountries(), [countrySearch, regionSelected, countries, paginate])
   
   
   return (
@@ -99,9 +106,15 @@ export default function Home() {
             { text: "Oceania" }]}
         />
       </Filter>
-      <Countries>
-        {countries && renderedCountries}
-      </Countries>
+      {countries && (
+        <Countries 
+          pageStart={0}
+          loadMore={() => setPaginate(prev => prev + 15)}
+          hasMore={paginate < filteredCountries.length}
+        >
+          {renderedCountries}
+        </Countries>
+      )}
     </StyledHome>
   )
 }

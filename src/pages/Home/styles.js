@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import InfiniteScroll from 'react-infinite-scroller'
 
 export const StyledHome = styled.div`
   min-height: 100vh;
@@ -14,7 +15,7 @@ export const Filter = styled.div`
   justify-content: space-between;
 `
 
-export const Countries = styled.div`
+export const Countries = styled(InfiniteScroll)`
   width: 100%;
   margin-top: 7vh;
   display: grid;
@@ -22,8 +23,4 @@ export const Countries = styled.div`
   justify-content: space-between;
   row-gap: 60px;
   column-gap: 20px;
-
-  /* > div {
-    margin: 0 10px 70px 10px;
-  } */
 `
