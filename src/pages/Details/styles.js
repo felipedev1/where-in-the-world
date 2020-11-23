@@ -6,6 +6,10 @@ export const StyledDetails = styled.div`
   width: 90%;
   margin: 0 auto;
   padding-top: 20vh;
+
+  @media(max-width: 800px) {
+    padding-bottom: 8vh;
+  }
 `
 
 export const BackButton = styled(Link)`
@@ -34,6 +38,15 @@ export const CountryDiv = styled.div`
     height: 50vh;
     /* object-fit: cover; */
   }
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 `
 
 export const CountryInfo = styled.div`
@@ -59,6 +72,26 @@ export const CountryInfo = styled.div`
       margin-bottom: 10px;
       margin-right: 10px;
     }
+
+  }
+
+  @media(max-width: 800px) {
+    ul {
+      height: 300px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    margin-left: 0;
+    margin-top: 8vh;
+
+    ul {
+      height: auto;
+
+      li {
+        max-width: 100%;
+      }
+    }
   }
 `
 
@@ -68,6 +101,13 @@ export const BorderCountries = styled.div`
 
   strong {
     margin-right: 10px;
+  }
+
+  @media(max-width: 600px) {
+    strong {
+      display: block;
+      margin-bottom: 10px;
+    }
   }
 `
 
