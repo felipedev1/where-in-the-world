@@ -19,8 +19,13 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.h1`
-  font-size: 2.3rem;
+  font-size: 26px;
   font-weight: 800;
+  margin-right: 10px;
+
+  @media(max-width: 600px) {
+    font-size: 20px;
+  }
 `
 
 export const ToggleTheme = styled.button`
@@ -37,6 +42,6 @@ export const ToggleTheme = styled.button`
   }
 
   span {
-    margin-left: 10px;
+    margin-left: 1vw;
   }
 `

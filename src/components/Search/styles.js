@@ -2,12 +2,17 @@ import styled from 'styled-components'
 
 
 export const SearchGroup = styled.div`
-  width: 400px;
+  width: 28vw;
   position: relative;
+
+  @media(max-width: 600px) {
+    width: 100%;
+  }
 
   svg {
     position: absolute;
-    top: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 5%;
   }
 `
