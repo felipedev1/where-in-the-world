@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
 export const StyledCard = styled.div`
-
-background-color: ${props => props.theme.colors.element};
+  background-color: ${props => props.theme.colors.element};
   min-width: 250px;
   min-height: 330px;
   box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   overflow: hidden;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 export const CardImage = styled.img`
